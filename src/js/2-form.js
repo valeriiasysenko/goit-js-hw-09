@@ -41,7 +41,7 @@ function loadFromLS(key, defaultValue) {
 
 form.addEventListener("submit", e => {
     e.preventDefault();
-    if (formData.email === "" || formData.message === "") {
+    if (form.elements.email.value.trim() === "" || form.elements.message.value.trim() === "") {
         alert("Fill please all fields");
     } else {
         console.log(formData);
