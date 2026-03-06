@@ -26,11 +26,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const userForm = loadFromLS(STORAGE_KEY, {});
     form.elements.email.value = userForm.email || "";
     form.elements.message.value = userForm.message || "";
+    formData.email = userForm.email || "";
+    formData.message = userForm.message || "";
 
 });
 
 function loadFromLS(key, defaultValue) {
-    const jsonData = localStorage.getItem(STORAGE_KEY);
+    const jsonData = localStorage.getItem(key);
     try {
         const parseData = JSON.parse(jsonData);
         return parseData ?? defaultValue;
