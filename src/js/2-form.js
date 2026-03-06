@@ -6,6 +6,14 @@ const formData = {
     email: "",
     message: "",
 };
+document.addEventListener("DOMContentLoaded", (e) => {
+    const userForm = loadFromLS(STORAGE_KEY, {});
+    form.elements.email.value = userForm.email || "";
+    form.elements.message.value = userForm.message || "";
+    formData.email = userForm.email || "";
+    formData.message = userForm.message || "";
+
+});
 
 form.addEventListener("input", (e) => {
     const data = new FormData(form);
@@ -19,15 +27,6 @@ form.addEventListener("input", (e) => {
     
     const json = JSON.stringify(formData);
     const addLS = localStorage.setItem(STORAGE_KEY, json);
-
-});
-
-document.addEventListener("DOMContentLoaded", (e) => {
-    const userForm = loadFromLS(STORAGE_KEY, {});
-    form.elements.email.value = userForm.email || "";
-    form.elements.message.value = userForm.message || "";
-    formData.email = userForm.email || "";
-    formData.message = userForm.message || "";
 
 });
 
